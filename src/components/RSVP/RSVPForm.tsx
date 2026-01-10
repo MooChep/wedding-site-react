@@ -4,32 +4,55 @@ import { useState } from 'react';
 
 export default function RSVPForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    guests: '1',
-    attending: 'yes',
-    dietaryNeeds: '',
+    lastName: '',
+    guestNames: '',
+    attendance: {
+      fridayOnSite: false,
+      saturdayPresent: false,
+      wineReception: false,
+      dinner: false,
+      evening: false,
+      sunday: false,
+    },
+    danceMusic: '',
     message: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      attendance: {
+        ...prev.attendance,
+        [name]: checked,
+      },
+    }));
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('RSVP Submitted:', formData);
+    console.log('RSVP Soumis:', formData);
     setSubmitted(true);
     setTimeout(() => {
       setFormData({
-        name: '',
-        email: '',
-        guests: '1',
-        attending: 'yes',
-        dietaryNeeds: '',
+        lastName: '',
+        guestNames: '',
+        attendance: {
+          fridayOnSite: false,
+          saturdayPresent: false,
+          wineReception: false,
+          dinner: false,
+          evening: false,
+          sunday: false,
+        },
+        danceMusic: '',
         message: '',
       });
       setSubmitted(false);
@@ -40,104 +63,161 @@ export default function RSVPForm() {
     return (
       <div className="bg-green-50 border-2 border-green-200 rounded-lg p-8 text-center">
         <div className="text-5xl mb-4">✓</div>
-        <h3 className="text-2xl font-bold text-green-900 mb-2">Thank you!</h3>
-        <p className="text-green-700">Your RSVP has been received. We can't wait to celebrate with you!</p>
+        <h3 className="text-2xl font-bold text-green-900 mb-2">Merci beaucoup !</h3>
+        <p className="text-green-700">Votre réponse a été reçue. Nous avons hâte de célébrer avec vous !</p>
       </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-6">
-      {/* Name */}
+      {/* Nom de famille */}
       <div>
-        <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
-          Full Name *
+        <label htmlFor="lastName" className="block text-sm font-semibold text-gray-900 mb-2">
+          Nom de famille *
         </label>
         <input
           type="text"
-          id="name"
-          name="name"
-          value={formData.name}
+          id="lastName"
+          name="lastName"
+          value={formData.lastName}
           onChange={handleChange}
           required
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
-          placeholder="John Doe"
+          placeholder="Ex : Sanchez"
         />
       </div>
 
-      {/* Email */}
+      {/* Prénoms des invités */}
       <div>
-        <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-          Email *
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
-          placeholder="john@example.com"
-        />
-      </div>
-
-      {/* Attending */}
-      <div>
-        <label htmlFor="attending" className="block text-sm font-semibold text-gray-900 mb-2">
-          Will you be attending? *
-        </label>
-        <select
-          id="attending"
-          name="attending"
-          value={formData.attending}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
-        >
-          <option value="yes">Yes, I will attend</option>
-          <option value="no">No, I cannot attend</option>
-          <option value="maybe">Maybe</option>
-        </select>
-      </div>
-
-      {/* Number of Guests */}
-      <div>
-        <label htmlFor="guests" className="block text-sm font-semibold text-gray-900 mb-2">
-          Number of Guests (including yourself) *
-        </label>
-        <select
-          id="guests"
-          name="guests"
-          value={formData.guests}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
-        >
-          {[1, 2, 3, 4, 5].map(num => (
-            <option key={num} value={num}>{num} {num === 1 ? 'guest' : 'guests'}</option>
-          ))}
-        </select>
-      </div>
-
-      {/* Dietary Needs */}
-      <div>
-        <label htmlFor="dietaryNeeds" className="block text-sm font-semibold text-gray-900 mb-2">
-          Dietary Restrictions
+        <label htmlFor="guestNames" className="block text-sm font-semibold text-gray-900 mb-2">
+          Prénoms des invités *
         </label>
         <input
           type="text"
-          id="dietaryNeeds"
-          name="dietaryNeeds"
-          value={formData.dietaryNeeds}
+          id="guestNames"
+          name="guestNames"
+          value={formData.guestNames}
           onChange={handleChange}
+          required
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
-          placeholder="e.g., Vegetarian, Gluten-free"
+          placeholder="Ex : Camille, Ilan, Milio..."
+        />
+      </div>
+
+      {/* Présence au week-end */}
+      <div>
+        <label className="block text-sm font-semibold text-gray-900 mb-4">
+          Présence au week-end *
+        </label>
+        <div className="space-y-3">
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="fridayOnSite"
+              name="fridayOnSite"
+              checked={formData.attendance.fridayOnSite}
+              onChange={handleCheckboxChange}
+              className="w-4 h-4 text-rose-600 rounded focus:ring-2 focus:ring-rose-600"
+            />
+            <label htmlFor="fridayOnSite" className="ml-3 text-gray-700">
+              Déjà sur place le vendredi
+            </label>
+          </div>
+
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="saturdayPresent"
+              name="saturdayPresent"
+              checked={formData.attendance.saturdayPresent}
+              onChange={handleCheckboxChange}
+              className="w-4 h-4 text-rose-600 rounded focus:ring-2 focus:ring-rose-600"
+            />
+            <label htmlFor="saturdayPresent" className="ml-3 text-gray-700">
+              Présent le samedi
+            </label>
+          </div>
+
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="wineReception"
+              name="wineReception"
+              checked={formData.attendance.wineReception}
+              onChange={handleCheckboxChange}
+              className="w-4 h-4 text-rose-600 rounded focus:ring-2 focus:ring-rose-600"
+            />
+            <label htmlFor="wineReception" className="ml-3 text-gray-700">
+              Présent au vin d'honneur
+            </label>
+          </div>
+
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="dinner"
+              name="dinner"
+              checked={formData.attendance.dinner}
+              onChange={handleCheckboxChange}
+              className="w-4 h-4 text-rose-600 rounded focus:ring-2 focus:ring-rose-600"
+            />
+            <label htmlFor="dinner" className="ml-3 text-gray-700">
+              Présent au dîner
+            </label>
+          </div>
+
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="evening"
+              name="evening"
+              checked={formData.attendance.evening}
+              onChange={handleCheckboxChange}
+              className="w-4 h-4 text-rose-600 rounded focus:ring-2 focus:ring-rose-600"
+            />
+            <label htmlFor="evening" className="ml-3 text-gray-700">
+              Présent à la soirée
+            </label>
+          </div>
+
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="sunday"
+              name="sunday"
+              checked={formData.attendance.sunday}
+              onChange={handleCheckboxChange}
+              className="w-4 h-4 text-rose-600 rounded focus:ring-2 focus:ring-rose-600"
+            />
+            <label htmlFor="sunday" className="ml-3 text-gray-700">
+              Présent le dimanche
+            </label>
+          </div>
+        </div>
+      </div>
+
+      {/* Musique pour danser */}
+      <div>
+        <label htmlFor="danceMusic" className="block text-sm font-semibold text-gray-900 mb-2">
+          La musique qui vous fera danser jusqu'au bout de la nuit *
+        </label>
+        <input
+          type="text"
+          id="danceMusic"
+          name="danceMusic"
+          value={formData.danceMusic}
+          onChange={handleChange}
+          required
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
+          placeholder="Ex : Une belle histoire de Michel Fugain"
         />
       </div>
 
       {/* Message */}
       <div>
         <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
-          Message for the couple
+          Un petit mot ou une précision
         </label>
         <textarea
           id="message"
@@ -146,7 +226,7 @@ export default function RSVPForm() {
           onChange={handleChange}
           rows={4}
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
-          placeholder="Share your well wishes..."
+          placeholder="Écrivez ici votre message..."
         />
       </div>
 
@@ -155,7 +235,7 @@ export default function RSVPForm() {
         type="submit"
         className="w-full bg-rose-600 text-white font-semibold py-3 rounded-lg hover:bg-rose-700 transition"
       >
-        Submit RSVP
+        Envoyer ma réponse
       </button>
     </form>
   );

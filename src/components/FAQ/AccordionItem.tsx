@@ -13,7 +13,7 @@ export default function AccordionItem({
   answer,
   isExpanded,
   onToggle,
-}: AccordionItemProps) {
+}: Readonly<AccordionItemProps>) {
   return (
     <div className="border border-gray-200 rounded-lg overflow-hidden">
       <button
