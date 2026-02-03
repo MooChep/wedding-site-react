@@ -13,8 +13,8 @@
   --palette-8: #797979; /* Text grey */
   
   /* Mapping sémantique */
-  --background: var(--palette-5);
-  --foreground: #171717;
+  --background: var(--palette-6);
+  --foreground: var(--palette-7);
   --color-blue: var(--palette-1);
   --color-yellow: var(--palette-2);
   --color-pink: var(--palette-3);
