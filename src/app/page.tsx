@@ -1,26 +1,48 @@
-import Image from "next/image";
+import CustomHrLine from "@/components/CustomHrLine";
+import Mariés from "@/components/images/Mariés";
+import ConfirmPresenceButton from "@/components/navigation/ConfirmPresenceButton";
+import InfoProgramme from "@/components/navigation/InfoProgramme";
 
 export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-rose-50 to-pink-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-            19 septembre 2026
+      <section className="bg-gray-100 pb-20 pt-4">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-16">
+          {/* Titre principal */}
+          <h1 className="font-schoolbell text-4xl md:text-5xl text-gray-900 mb-2">
+            Camille & Ilan
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Le grand jour approche ! Nous nous dirons oui dans :
+          
+          {/* Sous-titre */}
+          <p className="font-schoolbell text-lg md:text-xl text-gray-700 mb-4">
+            Notre Mariage - 19 septembre 2026
           </p>
-          <div className="text-2xl font-semibold text-rose-600 mb-4">
-            251 jours, 15h 28m 3s
+          
+          {/* SVG Illustration couple - PLACEHOLDER */}
+          <div className="flex justify-center">
+            <Mariés/>
           </div>
-          <a href="/rsvp" className="inline-block bg-rose-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-rose-700 transition">
-            Je suis présent(e)
-          </a>
+          
+          {/* Boutons CTA */}
+          <div className="flex flex-col items-center gap-2 mb-16">
+            <a 
+              href="/rsvp"             >
+              <ConfirmPresenceButton/>
+            </a>
+            <a 
+              href="/faq"             >
+              <InfoProgramme/>
+            </a>
+          </div>
+          
+          {/* Compte à rebours */}
+          <p className="font-schoolbell text-lg text-gray-700">
+            270 jours - 13 heures - 45 minutes
+          </p>
         </div>
+        <CustomHrLine/>
       </section>
-      
 
       {/* Details Section */}
       <section className="py-20">
