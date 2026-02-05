@@ -40,6 +40,10 @@ export default function AddPhotoBox({ onUpload }: Props) {
     }
   };
 
+  // TODO: Add drag-and-drop support and show upload progress
+  // TODO: Handle multiple file uploads and show thumbnails of uploaded images
+  
+  // TODO: Center svg and add hover effect to indicate clickability 
   return (
       <div className='flex items-center justify-center'>
         <input
