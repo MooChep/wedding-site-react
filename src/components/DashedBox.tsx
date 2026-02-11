@@ -19,7 +19,7 @@ function DashedBox({
   const cornerRadius = borderRadius - (strokeWidth / 2);
   
   return (
-    <div className="relative" style={{ padding: `${padding}px`, borderRadius: `${borderRadius}px` }}>
+    <div className="relative" style={{ padding: `${padding}px`, borderRadius: `${borderRadius}px`, backgroundColor: `#fafafa` }}>
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none"
         style={{ borderRadius: `${borderRadius}px` }}
