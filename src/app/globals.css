@@ -21,8 +21,12 @@
   --color-blue-pastel: var(--palette-5);
   --color-text: var(--palette-7);
   --color-text-grey: var(--palette-8);
-}
 
+}
+/* Letter-spacing to match figma & create handwritten feel */
+html {
+  letter-spacing: 0.12rem;
+}
 @font-face {
   font-family: 'Kids';
   src: url('/fonts/Kidsn.ttf') format('truetype');
