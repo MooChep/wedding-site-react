@@ -13,7 +13,6 @@ const BORDER_COLORS = [
   '#f8bf0b', // palette-2: yellow
   '#f867c8', // palette-3: pink
   '#5aba32', // palette-4: green
-  '#96d0ee', // palette-5: blue-pastel
 ];
 
 export default function AccordionItem({
@@ -26,9 +25,9 @@ export default function AccordionItem({
   }, [id]);
 
   return (
-    <DashedBox dashLength={25} gapLength={20} color={borderColor}>
-      <h3 className="text-lg font-semibold text-gray-900 text-left mb-3">{question}</h3>
-      <p className="text-gray-700 leading-relaxed">{answer}</p>
+    <DashedBox color={borderColor} padding={20} strokeWidth={3} borderRadius={25} dashLength={13} gapLength={13}>
+      <h3 className="text-lg text-center mb-3">{question}</h3>
+      <p className="text-gray-500 text-center leading-relaxed">{answer}</p>
     </DashedBox>
   );
 }
