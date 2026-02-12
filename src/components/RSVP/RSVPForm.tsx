@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import DashedBox from '../DashedBox';
 
 export default function RSVPForm() {
   const [formData, setFormData] = useState({
@@ -68,14 +69,15 @@ export default function RSVPForm() {
       </div>
     );
   }
-
+// Every field has the same dashedbox
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-6">
+    <form onSubmit={handleSubmit} className="p-8 space-y-6">
       {/* Nom de famille */}
       <div>
         <label htmlFor="lastName" className="block text-sm font-semibold text-gray-900 mb-2">
-          Nom de famille *
+          Nom de famille <span className='text-red-500'>*</span>
         </label>
+        <DashedBox color='var(--color-blue-pastel)' padding={4} strokeWidth={3} borderRadius={12} dashLength={13} gapLength={13}>
         <input
           type="text"
           id="lastName"
@@ -83,16 +85,18 @@ export default function RSVPForm() {
           value={formData.lastName}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
+          className="w-full px-4 py-2 focus:ring-2 focus:ring-rose-600 focus:border-transparent"
           placeholder="Ex : Sanchez"
-        />
+          />
+          </DashedBox>
       </div>
 
       {/* Prénoms des invités */}
       <div>
         <label htmlFor="guestNames" className="block text-sm font-semibold text-gray-900 mb-2">
-          Prénoms des invités *
+          Prénoms des invités <span className='text-red-500'>*</span>
         </label>
+        <DashedBox color='var(--color-blue-pastel)' padding={4} strokeWidth={3} borderRadius={12} dashLength={13} gapLength={13}>
         <input
           type="text"
           id="guestNames"
@@ -100,15 +104,16 @@ export default function RSVPForm() {
           value={formData.guestNames}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
+          className="w-full px-4 py-2 focus:ring-2 focus:ring-rose-600 focus:border-transparent"
           placeholder="Ex : Camille, Ilan, Milio..."
         />
+        </DashedBox>
       </div>
 
       {/* Présence au week-end */}
       <div>
         <label className="block text-sm font-semibold text-gray-900 mb-4">
-          Présence au week-end *
+          Présence au week-end <span className='text-red-500'>*</span>
         </label>
         <div className="space-y-3">
           <div className="flex items-center">
@@ -126,6 +131,7 @@ export default function RSVPForm() {
           </div>
 
           <div className="flex items-center">
+            <DashedBox color='var(--color-blue-pastel)' padding={4} strokeWidth={3} borderRadius={12} dashLength={2} gapLength={5}>
             <input
               type="checkbox"
               id="saturdayPresent"
@@ -134,6 +140,7 @@ export default function RSVPForm() {
               onChange={handleCheckboxChange}
               className="w-4 h-4 text-rose-600 rounded focus:ring-2 focus:ring-rose-600"
             />
+            </DashedBox>
             <label htmlFor="saturdayPresent" className="ml-3 text-gray-700">
               Présent le samedi
             </label>
@@ -200,7 +207,7 @@ export default function RSVPForm() {
       {/* Musique pour danser */}
       <div>
         <label htmlFor="danceMusic" className="block text-sm font-semibold text-gray-900 mb-2">
-          La musique qui vous fera danser jusqu'au bout de la nuit *
+          La musique qui vous fera danser jusqu'au bout de la nuit
         </label>
         <input
           type="text"
@@ -208,7 +215,6 @@ export default function RSVPForm() {
           name="danceMusic"
           value={formData.danceMusic}
           onChange={handleChange}
-          required
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
           placeholder="Ex : Une belle histoire de Michel Fugain"
         />
@@ -229,7 +235,9 @@ export default function RSVPForm() {
           placeholder="Écrivez ici votre message..."
         />
       </div>
-
+      <div>
+        <span className='text-red-500'>*</span> indique les champs obligatoires
+      </div>
       {/* Submit Button */}
       <button
         type="submit"
