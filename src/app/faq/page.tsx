@@ -124,7 +124,7 @@ export default function FAQ() {
 								<label htmlFor="name" className="block text-gray-900 mb-2">
 									Votre nom :
 								</label>
-								<DashedBox color='var(--color-blue-pastel)' padding={4} strokeWidth={3} borderRadius={12} dashLength={13} gapLength={13}>
+								<DashedBox color='var(--color-pink)' padding={4} strokeWidth={3} borderRadius={12} dashLength={13} gapLength={13}>
 								<input
 									type="text"
 									id="name"
@@ -142,7 +142,7 @@ export default function FAQ() {
 								<label htmlFor="email" className="block text-gray-900 mb-2">
 									Votre e-mail :
 								</label>
-								<DashedBox color='var(--color-blue-pastel)' padding={4} strokeWidth={3} borderRadius={12} dashLength={13} gapLength={13}>
+								<DashedBox color='var(--color-pink)' padding={4} strokeWidth={3} borderRadius={12} dashLength={13} gapLength={13}>
 								<input
 									type="email"
 									id="email"
@@ -161,7 +161,7 @@ export default function FAQ() {
 								<label htmlFor="question" className="block text-gray-900 mb-2">
 									Votre question :
 								</label>
-								<DashedBox color='var(--color-blue-pastel)' padding={4} strokeWidth={3} borderRadius={12} dashLength={13} gapLength={13}>
+								<DashedBox color='var(--color-pink)' padding={4} strokeWidth={3} borderRadius={12} dashLength={13} gapLength={13}>
 								<textarea
 									id="question"
 									name="question"
