@@ -7,7 +7,7 @@ export default function RSVP() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-rose-50 to-pink-50 py-12">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Répondez s'il vous plaît !</h1>
           <p className="text-md text-gray-600">Merci de remplir le formulaire ci-dessous pour confirmer votre présence avant le 1er juillet 2026 !</p>
