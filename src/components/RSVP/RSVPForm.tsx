@@ -85,7 +85,7 @@ export default function RSVPForm() {
           value={formData.lastName}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 focus:ring-2 focus:ring-rose-600 focus:border-transparent"
+          className="w-full px-4 py-2  "
           placeholder="Ex : Sanchez"
           />
           </DashedBox>
@@ -216,7 +216,7 @@ export default function RSVPForm() {
           name="danceMusic"
           value={formData.danceMusic}
           onChange={handleChange}
-          className="w-full px-4 py-2 focus:ring-2 focus:ring-rose-600 focus:border-transparent"
+          className="w-full px-4 py-2  "
           placeholder="Ex : Une belle histoire de Michel Fugain"
         />
         </DashedBox>
@@ -234,7 +234,7 @@ export default function RSVPForm() {
           value={formData.message}
           onChange={handleChange}
           rows={4}
-          className="w-full px-4 py-2 focus:ring-2 focus:ring-rose-600 focus:border-transparent"
+          className="w-full px-4 py-2  "
           placeholder="Écrivez ici votre message..."
         />
         </DashedBox>
