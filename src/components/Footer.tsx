@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
     <footer className="text-white mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="flex flex-col items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-center w-full py-10">
           <div>
-            <h3 className="text-xl font-bold mb-4">Informations</h3>
+            <h3 className="text-xl font-bold mb-4 var(--color-rose)">Informations & Contact</h3>
             <p className="text-gray-400">Domaine Les 3 Rivages</p>
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=Domaine+les+3+Rivages"
@@ -13,6 +13,10 @@ export default function Footer() {
               className="text-rose-400 hover:underline mt-2 inline-block"
             >
               Voir l’itinéraire sur Google Maps
+            </a>
+
+            <a href="mailto:camille.ilan1909@gmail.com" className="text-rose-400 hover:underline mt-2 inline-block">
+              Envoyer un email
             </a>
           </div>
 
@@ -26,12 +30,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-bold mb-4">Contact</h4>
-            <p className="text-gray-400">
-              Email: <a href="mailto:camille.ilan1909@gmail.com" className="text-rose-400 hover:underline mt-2 inline-block">camille.ilan1909@gmail.com</a>
-            </p>
-          </div>
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
