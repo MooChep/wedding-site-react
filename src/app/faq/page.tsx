@@ -132,7 +132,7 @@ export default function FAQ() {
 									value={contactForm.name}
 									onChange={handleContactChange}
 									required
-									className="w-full px-4 py-2"
+									className="w-full px-4 py-2 focus:ring-2 focus:ring-rose-600 focus:border-transparent"
 									placeholder="Ex: Sanchez Milio"
 									/>
 								</DashedBox>
