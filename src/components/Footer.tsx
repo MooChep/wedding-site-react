@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="flex flex-col items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-center w-full py-10">
           <div>
-            <h3 className="text-xl font-bold mb-4 var(--color-rose)">Informations & Contact</h3>
+            <h3 className="text-xl font-bold mb-4 var(--color-pink)">Informations & Contact</h3>
             <p className="text-gray-400">Domaine Les 3 Rivages</p>
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=Domaine+les+3+Rivages"
@@ -21,7 +21,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold mb-4">Actions rapides</h4>
+            <h4 className="text-xl font-bold mb-4 text-pink-500">Actions rapides</h4>
             <ul className="space-y-2 text-gray-400">
               <li><a href="/" className="hover:text-rose-400 transition">Retour à l'accueil</a></li>
               <li><a href="/faq" className="hover:text-rose-400 transition">Poser une question</a></li>
