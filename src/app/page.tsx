@@ -4,8 +4,10 @@ import CustomHrLine from "@/components/CustomHrLine";
 import DashedBox from "@/components/DashedBox";
 import Calendar from "@/components/images/calendar";
 import Horloge from "@/components/images/horloge";
+import MapSVG from "@/components/images/map";
 import Mariés from "@/components/images/Mariés";
 import MariésTenue from "@/components/images/Mariés-tenue";
+import MapLink from "@/components/MapLink";
 import ConfirmPresenceButton from "@/components/navigation/ConfirmPresenceButton";
 import InfoProgramme from "@/components/navigation/InfoProgramme";
 import { useEffect, useState } from "react";
@@ -170,15 +172,22 @@ export default function Home() {
           <a className="text-black hover:text-rose-600 transition mb-6 inline-block" href="https://www.google.com/maps/dir/?api=1&destination=Domaine+les+3+Rivages" target="_blank" rel="noopener noreferrer">
             Domaine Les 3 Rivages
           </a>
-          <div className="flex justify-center mt-8">
+          {/* LES ELEMENTS SONT ALIGNES A LHORIZONTAL */}
+
+          <DashedBox color="var(--color-green)" padding={20} strokeWidth={3} borderRadius={30} dashLength={13} gapLength={13}>
+          <div className="flex flex-row items-center gap-6">
+          <MapLink/>
+          <div className="flex justify-center">
             <iframe 
               title="Google maps"
               src="https://www.google.com/maps?q=Domaine+les+3+Rivages&output=embed" 
               loading="lazy"
               className="w-full h-96 rounded-lg shadow-lg"
               referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+              ></iframe>
           </div>
+              </div>
+              </DashedBox>
         </div>
       </section>
     
