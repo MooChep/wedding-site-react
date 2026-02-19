@@ -23,16 +23,16 @@ export default function Navigation() {
               <AccueilButton/>
             </Link>
             <Link 
+              href="/rsvp"             >
+              <ReservationButton/>
+            </Link>
+            <Link 
               href="/faq"             >
               <FaqButton/>
             </Link>
             <Link 
               href="/gallery"             >
               <PhotosButton/>
-            </Link>
-            <Link 
-              href="/rsvp"             >
-              <ReservationButton/>
             </Link>
           </div>
 
@@ -49,34 +49,23 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-3">
+          // div take full width and height of the screen, with a white background and is centered
+          <div className="md:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-6">
             <Link 
-              href="/" 
-              className="block text-center px-6 py-2.5 bg-blue-400 text-white rounded-full font-medium shadow-md border-2 border-blue-500" 
-              onClick={() => setIsOpen(false)}
-            >
-              accueil
+              href="/"             >
+              <AccueilButton/>
             </Link>
             <Link 
-              href="/faq" 
-              className="block text-center px-6 py-2.5 bg-pink-400 text-white rounded-full font-medium shadow-md border-2 border-pink-500" 
-              onClick={() => setIsOpen(false)}
-            >
-              faq
+              href="/rsvp"             >
+              <ReservationButton/>
             </Link>
             <Link 
-              href="/gallery" 
-              className="block text-center px-6 py-2.5 bg-green-400 text-white rounded-full font-medium shadow-md border-2 border-green-500" 
-              onClick={() => setIsOpen(false)}
-            >
-              photos
+              href="/faq"             >
+              <FaqButton/>
             </Link>
             <Link 
-              href="/rsvp" 
-              className="block text-center px-6 py-2.5 bg-yellow-400 text-white rounded-full font-medium shadow-md border-2 border-yellow-500" 
-              onClick={() => setIsOpen(false)}
-            >
-              réservation
+              href="/gallery"             >
+              <PhotosButton/>
             </Link>
           </div>
         )}
