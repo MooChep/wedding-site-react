@@ -4,7 +4,6 @@ import CustomHrLine from "@/components/CustomHrLine";
 import DashedBox from "@/components/DashedBox";
 import Calendar from "@/components/images/calendar";
 import Horloge from "@/components/images/horloge";
-import MapSVG from "@/components/images/map";
 import Mariés from "@/components/images/Mariés";
 import MariésTenue from "@/components/images/Mariés-tenue";
 import MapLink from "@/components/MapLink";
@@ -121,43 +120,42 @@ export default function Home() {
       </section>
 
       {/* Details Section */}
-      <section className="py-20 display:flex flex-col gap-20">
+      <section className="py-20 flex flex-col gap-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-4xl mb-10">Le déroulé du week-end</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <div className="flex flex-col text-center h-full">
               <DashedBox color="var(--color-pink)" padding={20} strokeWidth={3} borderRadius={30} dashLength={13} gapLength={13}>
               <h3 className="text-xl font-bold mb-2">Vendredi</h3>
               <div className="flex justify-center">
                 <Horloge/>
               </div>
-              <p className="text-gray-400 w-50">
-                Vous arrivez dès le vendredi ?
-                Venez partager une pizza avec nous dès 19h !
+              <p className="text-gray-400 text-center flex items-center justify-center min-h-[100px]">
+                Vous venez de loin et vous souhaitez arriver la veille ? Venez prêter main forte et partager une pizza avec nous !
               </p>
               </DashedBox>
             </div>
 
-            <div className="text-center">
+            <div className="flex flex-col text-center h-full">
               <DashedBox color="var(--color-yellow)" padding={20} strokeWidth={3} borderRadius={30} dashLength={13} gapLength={13}>
               <h3 className="text-xl font-bold mb-2">Samedi</h3>
               <div className="flex justify-center">
               <Calendar/>
               </div>
-              <p className="text-gray-400">
-                Rendez vous à 14h pour la cérémonie, suivie du vin d’honneur à 15h et du diner à partir de 18h !
+              <p className="text-gray-400 text-center flex items-center justify-center min-h-[100px]">
+                Rendez vous à 14h pour la cérémonie suivie d'un cocktail dinatoire et d'une soirée dansante à partir de 21h !
               </p>
               </DashedBox>
             </div>
 
-            <div className="text-center">
+            <div className="flex flex-col text-center h-full">
               <DashedBox color="var(--color-blue)" padding={20} strokeWidth={3} borderRadius={30} dashLength={13} gapLength={13}>
               <h3 className="text-xl font-bold mb-2">Dimanche</h3>
               <div className="flex justify-center">
               <MariésTenue/>
               </div>
-              <p className="text-gray-400">
-                Repas à 12h et activités sur le domaine l'après-midi
+              <p className="text-gray-400 text-center flex items-center justify-center min-h-[100px]">
+              Le lendemain, on remet le couvert ! Repas à 12h et activités pour prolonger la fête.
               </p>
               </DashedBox>
             </div>
