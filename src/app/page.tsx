@@ -172,23 +172,26 @@ export default function Home() {
           <a className="text-black hover:text-rose-600 transition mb-6 inline-block" href="https://www.google.com/maps/dir/?api=1&destination=Domaine+les+3+Rivages" target="_blank" rel="noopener noreferrer">
             Domaine Les 3 Rivages
           </a>
-          {/* LES ELEMENTS SONT ALIGNES A LHORIZONTAL */}
-
-          <DashedBox color="var(--color-green)" padding={20} strokeWidth={3} borderRadius={30} dashLength={13} gapLength={13}>
-          <div className="flex flex-row items-center gap-6">
-          <MapLink/>
-          <div className="flex justify-center">
-            <iframe 
-              title="Google maps"
-              src="https://www.google.com/maps?q=Domaine+les+3+Rivages&output=embed" 
-              loading="lazy"
-              className="w-full h-96 rounded-lg shadow-lg"
-              referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-          </div>
+          <DashedBox color='#DDD' padding={4} strokeWidth={3} borderRadius={30} dashLength={13} gapLength={13}>
+          <div className="flex flex-row items-center gap-4 m-4 justify-center md:justify-between">
+            <div className="hidden md:flex md:flex-shrink-0 md:w-56 lg:w-72 relative overflow-hidden rounded-2xl items-center justify-center">
+              <div className="w-full aspect-square flex items-center justify-center">
+                <MapLink/>
               </div>
-              </DashedBox>
-        </div>
+            </div>
+
+            <div className="w-full md:flex-shrink-0 md:w-56 lg:w-72 relative overflow-hidden rounded-2xl shadow-lg aspect-video md:aspect-square">
+              <iframe 
+                title="Google maps"
+                src="https://www.google.com/maps?q=Domaine+les+3+Rivages&output=embed" 
+                loading="lazy"
+                className="absolute inset-0 w-full h-full rounded-2xl"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </DashedBox>
+          </div>
       </section>
     
     </div>
