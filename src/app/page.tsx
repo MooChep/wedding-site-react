@@ -1,7 +1,12 @@
 'use client';
 
 import CustomHrLine from "@/components/CustomHrLine";
+import DashedBox from "@/components/DashedBox";
+import Calendar from "@/components/images/calendar";
+import Horloge from "@/components/images/horloge";
 import Mariés from "@/components/images/Mariés";
+import MariésTenue from "@/components/images/Mariés-tenue";
+import MapLink from "@/components/MapLink";
 import ConfirmPresenceButton from "@/components/navigation/ConfirmPresenceButton";
 import InfoProgramme from "@/components/navigation/InfoProgramme";
 import { useEffect, useState } from "react";
@@ -115,32 +120,44 @@ export default function Home() {
       </section>
 
       {/* Details Section */}
-      <section className="py-20">
+      <section className="py-20 flex flex-col gap-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-4xl mb-10">Le déroulé du week-end</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl mb-4">📍</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <div className="flex flex-col text-center h-full">
+              <DashedBox color="var(--color-pink)" padding={20} strokeWidth={3} borderRadius={30} dashLength={13} gapLength={13}>
               <h3 className="text-xl font-bold mb-2">Vendredi</h3>
-              <p className="text-gray-400">
-                Venez commencer le week-end à 18h autour de pizzas et d'un karaoké
+              <div className="flex justify-center">
+                <Horloge/>
+              </div>
+              <p className="text-gray-400 text-center flex items-center justify-center min-h-[100px]">
+                Vous venez de loin et vous souhaitez arriver la veille ? Venez prêter main forte et partager une pizza avec nous !
               </p>
+              </DashedBox>
             </div>
 
-            <div className="text-center">
-              <div className="text-4xl mb-4">🎉</div>
+            <div className="flex flex-col text-center h-full">
+              <DashedBox color="var(--color-yellow)" padding={20} strokeWidth={3} borderRadius={30} dashLength={13} gapLength={13}>
               <h3 className="text-xl font-bold mb-2">Samedi</h3>
-              <p className="text-gray-400">
-                Rendez vous à 14h pour la cérémonie, suivie du vin d’honneur à 15h et du diner à partir de 18h !
+              <div className="flex justify-center">
+              <Calendar/>
+              </div>
+              <p className="text-gray-400 text-center flex items-center justify-center min-h-[100px]">
+                Rendez vous à 14h pour la cérémonie suivie d'un cocktail dinatoire et d'une soirée dansante à partir de 21h !
               </p>
+              </DashedBox>
             </div>
 
-            <div className="text-center">
-              <div className="text-4xl mb-4">🎂</div>
+            <div className="flex flex-col text-center h-full">
+              <DashedBox color="var(--color-blue)" padding={20} strokeWidth={3} borderRadius={30} dashLength={13} gapLength={13}>
               <h3 className="text-xl font-bold mb-2">Dimanche</h3>
-              <p className="text-gray-400">
-                Repas à 12h et activités sur le domaine l'après-midi
+              <div className="flex justify-center">
+              <MariésTenue/>
+              </div>
+              <p className="text-gray-400 text-center flex items-center justify-center min-h-[100px]">
+              Le lendemain, on remet le couvert ! Repas à 12h et activités pour prolonger la fête.
               </p>
+              </DashedBox>
             </div>
           </div>
         </div>
@@ -153,16 +170,26 @@ export default function Home() {
           <a className="text-black hover:text-rose-600 transition mb-6 inline-block" href="https://www.google.com/maps/dir/?api=1&destination=Domaine+les+3+Rivages" target="_blank" rel="noopener noreferrer">
             Domaine Les 3 Rivages
           </a>
-          <div className="flex justify-center mt-8">
-            <iframe 
-              title="Google maps"
-              src="https://www.google.com/maps?q=Domaine+les+3+Rivages&output=embed" 
-              loading="lazy"
-              className="w-full h-96 rounded-lg shadow-lg"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+          <DashedBox color='#DDD' padding={4} strokeWidth={3} borderRadius={30} dashLength={13} gapLength={13}>
+          <div className="flex flex-row items-center gap-4 m-4 justify-center md:justify-between">
+            <div className="hidden md:flex md:flex-shrink-0 md:w-56 lg:w-72 relative overflow-hidden rounded-2xl items-center justify-center">
+              <div className="w-full aspect-square flex items-center justify-center">
+                <MapLink/>
+              </div>
+            </div>
+
+            <div className="w-full md:flex-shrink-0 md:w-56 lg:w-72 relative overflow-hidden rounded-2xl shadow-lg aspect-video md:aspect-square">
+              <iframe 
+                title="Google maps"
+                src="https://www.google.com/maps?q=Domaine+les+3+Rivages&output=embed" 
+                loading="lazy"
+                className="absolute inset-0 w-full h-full rounded-2xl"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
-        </div>
+        </DashedBox>
+          </div>
       </section>
     
     </div>
