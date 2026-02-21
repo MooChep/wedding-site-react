@@ -260,7 +260,7 @@ export default function RSVPForm() {
       {/* Submit Button */}
       <button
         type="submit"
-        className="w-full py-3 flex align-center justify-center"
+        className="cursor-pointer w-full py-3 flex align-center justify-center"
       >
 <svg width="333" height="53" viewBox="0 0 333 53" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.0253906 19.5571C0.0253906 11.2729 6.74112 4.55713 15.0254 4.55713H315.025C323.31 4.55713 330.025 11.2729 330.025 19.5571V32.5571C330.025 40.8414 323.31 47.5571 315.025 47.5571H15.0254C6.74113 47.5571 0.0253906 40.8414 0.0253906 32.5571V19.5571Z" fill="#88BFFF"/>

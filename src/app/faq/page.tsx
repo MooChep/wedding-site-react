@@ -178,7 +178,7 @@ export default function FAQ() {
 							{/* Submit Button */}
 							<button
 								type="submit"
-								className="flex items-center justify-center w-full"
+								className="cursor-pointer flex items-center justify-center w-full"
 							>
 <svg width="340" height="53" viewBox="0 0 340 53" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.0244141 19.5571C0.0244141 11.2729 6.74014 4.55713 15.0244 4.55713H322.024C330.309 4.55713 337.024 11.2729 337.024 19.5571V32.5571C337.024 40.8414 330.309 47.5571 322.024 47.5571H15.0244C6.74014 47.5571 0.0244141 40.8414 0.0244141 32.5571V19.5571Z" fill="#EA92CD"/>
