@@ -21,6 +21,7 @@ export async function GET() {
       public_id: r.public_id,
       secure_url: r.secure_url,
       approved: r.tags?.includes('approved') ?? false,
+      rejected: r.tags?.includes('rejected') ?? false,
     }));
 
     return NextResponse.json({ photos });
@@ -34,11 +35,13 @@ export async function POST(req: Request) {
   try {
     const { public_id, action } = await req.json();
 
-    if (action === 'approve') {
-      await cloudinary.uploader.add_tag('approved', [public_id]);
-    } else {
-      await cloudinary.uploader.remove_tag('approved', [public_id]);
-    }
+  if (action === 'approve') {
+    await cloudinary.uploader.add_tag('approved', [public_id]);
+    await cloudinary.uploader.remove_tag('rejected', [public_id]);
+  } else {
+    await cloudinary.uploader.remove_tag('approved', [public_id]);
+    await cloudinary.uploader.add_tag('rejected', [public_id]);
+  }
 
     return NextResponse.json({ success: true });
   } catch {
