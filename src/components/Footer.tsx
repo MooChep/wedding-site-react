@@ -24,7 +24,7 @@ export default function Footer() {
             </a>
             <br/>
             <a href="mailto:camille.ilan1909@gmail.com" className="text-gray-700 hover:text-rose-400 transition mt-3 inline-block">
-              Camille.ilan1909@gmail.com
+              camille.ilan1909@gmail.com
             </a>
           </div>
 

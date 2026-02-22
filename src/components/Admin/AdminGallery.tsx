@@ -55,6 +55,11 @@ export default function AdminGallery() {
 
   return (
     <div>
+      <h2 className="text-3xl text-gray-800 mb-6">Galerie photos</h2>
+      <p className="text-gray-500 text-lg mb-10">
+        Approuvez ou rejetez les photos avant publication
+      </p>
+
       {/* Barre d'actions */}
       {selected.length > 0 && (
         <div className="sticky top-4 z-10 flex items-center justify-between bg-white shadow-lg rounded-2xl px-6 py-3 mb-6">

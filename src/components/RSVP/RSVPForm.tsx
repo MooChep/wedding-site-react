@@ -38,9 +38,18 @@ export default function RSVPForm() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('RSVP Soumis:', formData);
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch('/api/rsvp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    if (!res.ok) throw new Error('Erreur serveur');
+
     setSubmitted(true);
     setTimeout(() => {
       setFormData({
@@ -60,7 +69,10 @@ export default function RSVPForm() {
       });
       setSubmitted(false);
     }, 3000);
-  };
+  } catch (err) {
+    alert('Une erreur est survenue, veuillez réessayer.');
+  }
+};
 
   if (submitted) {
     return (

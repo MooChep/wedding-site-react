@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1771704424125,
+    "createdAt": "2026-02-21T20:07:04.125Z",
+    "name": "Ilan HEAS",
+    "email": "ilanheas@gmail.com",
+    "question": "J'ai une question !",
+    "treated": true
+  },
+  {
+    "id": 1771704672796,
+    "createdAt": "2026-02-21T20:11:12.796Z",
+    "name": "Ilan HEAS",
+    "email": "ilanheas@gmail.com",
+    "question": "Y'aura des frites ??",
+    "treated": true
+  }
+]

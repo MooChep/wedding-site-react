@@ -120,6 +120,8 @@
 
 import { useState } from "react";
 import AdminGallery from "@/components/Admin/AdminGallery";
+import RSVPAdmin from "@/components/Admin/RSVPAdmin";
+import FAQAdmin from '@/components/Admin/FAQAdmin';
 
 const PASSWORD = "camille-ilan2026"; // changez ici
 
@@ -163,12 +165,15 @@ export default function AdminPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-16">
       <h1 className="font-schoolbell text-4xl text-center text-gray-900 mb-2">
-        Administration 🎛️
+        Administration
       </h1>
-      <p className="font-schoolbell text-center text-gray-500 text-lg mb-10">
-        Approuvez ou rejetez les photos avant publication
-      </p>
-      <AdminGallery />
+    {/* Section RSVP */}
+    <RSVPAdmin />
+    
+    <FAQAdmin />
+    
+    {/* Section Gallerie */}
+    <AdminGallery />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import FaqButton from './navigation/navbar/FaqButton';
 import PhotosButton from './navigation/navbar/PhotosButton';
 import ReservationButton from './navigation/navbar/ReservationButton';
 import CustomHrLine from './CustomHrLine';
-
+import CrossButton from './images/CrossButton';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,20 +18,16 @@ export default function Navigation() {
         <div className="flex justify-center items-center h-20 gap-4">
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-10">
-            <Link 
-              href="/"             >
+            <Link href="/">
               <AccueilButton/>
             </Link>
-            <Link 
-              href="/rsvp"             >
+            <Link href="/rsvp">
               <ReservationButton/>
             </Link>
-            <Link 
-              href="/faq"             >
+            <Link href="/faq">
               <FaqButton/>
             </Link>
-            <Link 
-              href="/gallery"             >
+            <Link href="/gallery">
               <PhotosButton/>
             </Link>
           </div>
@@ -39,7 +35,8 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg bg-blue-400 text-white"
+            // Menu icon to the left of the screen, with a larger clickable area
+            className="md:hidden absolute right-4 p-2 text-gray-700 focus:outline-none rounded-lg scale-160"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -49,22 +46,23 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          // div take full width and height of the screen, with a white background and is centered
-          <div className="md:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-6">
-            <Link 
-              href="/"             >
+          <div className="md:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-6 ">
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-5 right-5 p-2 text-gray-700"
+            >
+              <CrossButton/>
+            </button>
+            <Link href="/" onClick={() => setIsOpen(false)}>
               <AccueilButton/>
             </Link>
-            <Link 
-              href="/rsvp"             >
+            <Link href="/rsvp" onClick={() => setIsOpen(false)}>
               <ReservationButton/>
             </Link>
-            <Link 
-              href="/faq"             >
+            <Link href="/faq" onClick={() => setIsOpen(false)}>
               <FaqButton/>
             </Link>
-            <Link 
-              href="/gallery"             >
+            <Link href="/gallery" onClick={() => setIsOpen(false)}>
               <PhotosButton/>
             </Link>
           </div>
