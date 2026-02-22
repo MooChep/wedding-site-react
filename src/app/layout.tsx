@@ -4,8 +4,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Our Wedding",
-  description: "Join us for the celebration of our love",
+  title: "Camille & Ilan - 19.09.2026",
+  description: "Site officiel du mariage de Camille et Ilan le 19 septembre 2026. Retrouvez toutes les informations, la galerie photos, et gérez votre RSVP pour célébrer ce jour spécial avec nous !",
 };
 
 export default function RootLayout({
