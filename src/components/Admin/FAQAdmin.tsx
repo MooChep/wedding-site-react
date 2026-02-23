@@ -171,8 +171,8 @@ export default function FAQAdmin() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between mt-12">
-        <h2 className="font-schoolbell text-3xl text-gray-800">FAQ </h2>
+      <div className="flex items-center justify-between">
+        <h2 className="font-schoolbell text-3xl text-gray-800">FAQ ❓</h2>
         <div className="flex gap-3 text-sm text-gray-400">
           <span>{visibleCount}/{faqs.length} publiées</span>
           {untreatedCount > 0 && (

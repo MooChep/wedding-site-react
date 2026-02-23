@@ -35,15 +35,32 @@ export async function POST(req: Request) {
   try {
     const { public_id, action } = await req.json();
 
-  if (action === 'approve') {
-    await cloudinary.uploader.add_tag('approved', [public_id]);
-    await cloudinary.uploader.remove_tag('rejected', [public_id]);
-  } else {
-    await cloudinary.uploader.remove_tag('approved', [public_id]);
-    await cloudinary.uploader.add_tag('rejected', [public_id]);
-  }
+    if (action === 'approve') {
+      await cloudinary.uploader.add_tag('approved', [public_id]);
+      await cloudinary.uploader.remove_tag('rejected', [public_id]);
+    } else {
+      await cloudinary.uploader.remove_tag('approved', [public_id]);
+      await cloudinary.uploader.add_tag('rejected', [public_id]);
+    }
 
     return NextResponse.json({ success: true });
+  } catch {
+    return NextResponse.json({ success: false }, { status: 500 });
+  }
+}
+
+// DELETE — supprimer définitivement une ou plusieurs photos
+export async function DELETE(req: Request) {
+  try {
+    const { public_ids } = await req.json();
+
+    if (!public_ids || public_ids.length === 0) {
+      return NextResponse.json({ error: 'Aucun identifiant fourni' }, { status: 400 });
+    }
+
+    await cloudinary.api.delete_resources(public_ids);
+
+    return NextResponse.json({ success: true, deleted: public_ids.length });
   } catch {
     return NextResponse.json({ success: false }, { status: 500 });
   }

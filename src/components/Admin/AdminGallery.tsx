@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -15,6 +14,7 @@ export default function AdminGallery() {
   const [loading, setLoading] = useState(true);
   const [pending, setPending] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   const fetchPhotos = async () => {
     const res = await fetch('/api/admin/photos');
@@ -41,10 +41,25 @@ export default function AdminGallery() {
         fetch('/api/admin/photos', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ public_id, action })
+          body: JSON.stringify({ public_id, action }),
         })
       )
     );
+    setSelected([]);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    await fetchPhotos();
+    setPending(false);
+  };
+
+  const bulkDelete = async () => {
+    if (selected.length === 0) return;
+    setPending(true);
+    setConfirmDelete(false);
+    await fetch('/api/admin/photos', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ public_ids: selected }),
+    });
     setSelected([]);
     await new Promise(resolve => setTimeout(resolve, 500));
     await fetchPhotos();
@@ -55,9 +70,9 @@ export default function AdminGallery() {
 
   return (
     <div>
-      <h2 className="text-3xl text-gray-800 mb-6">Galerie photos</h2>
+      <h2 className="font-schoolbell text-3xl text-gray-800 mb-6">Galerie photos 📸</h2>
       <p className="text-gray-500 text-lg mb-10">
-        Approuvez ou rejetez les photos avant publication
+        Approuvez, rejetez ou supprimez les photos
       </p>
 
       {/* Barre d'actions */}
@@ -76,9 +91,9 @@ export default function AdminGallery() {
             <button
               onClick={() => bulkAction('reject')}
               disabled={pending}
-              className="font-schoolbell px-4 py-1 rounded-full text-white bg-red-400 hover:bg-red-500 disabled:opacity-50"
+              className="font-schoolbell px-4 py-1 rounded-full text-white bg-orange-400 hover:bg-orange-500 disabled:opacity-50"
             >
-              Rejeter
+              🚫 Rejeter
             </button>
             <button
               onClick={() => bulkAction('approve')}
@@ -87,6 +102,40 @@ export default function AdminGallery() {
             >
               ✅ Approuver
             </button>
+            <button
+              onClick={() => setConfirmDelete(true)}
+              disabled={pending}
+              className="font-schoolbell px-4 py-1 rounded-full text-white bg-red-500 hover:bg-red-600 disabled:opacity-50"
+            >
+              🗑️ Supprimer
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Modale de confirmation suppression */}
+      {confirmDelete && (
+        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center">
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-sm mx-4 text-center space-y-4">
+            <p className="text-2xl">🗑️</p>
+            <p className="font-semibold text-gray-800">
+              Supprimer {selected.length} photo{selected.length > 1 ? 's' : ''} définitivement ?
+            </p>
+            <p className="text-sm text-gray-500">Cette action est irréversible.</p>
+            <div className="flex gap-3 justify-center pt-2">
+              <button
+                onClick={() => setConfirmDelete(false)}
+                className="px-5 py-2 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-50 transition"
+              >
+                Annuler
+              </button>
+              <button
+                onClick={bulkDelete}
+                className="px-5 py-2 rounded-xl bg-red-500 text-white hover:bg-red-600 transition font-medium"
+              >
+                Supprimer
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -120,14 +169,20 @@ export default function AdminGallery() {
               )}
               {/* Badge statut */}
               <div className={`absolute top-2 left-2 text-xs font-bold px-2 py-1 rounded-full text-white ${
-              photo.approved ? 'bg-green-400' : photo.rejected ? 'bg-red-400' : 'bg-gray-400'
+                photo.approved ? 'bg-green-400' : photo.rejected ? 'bg-red-400' : 'bg-gray-400'
               }`}>
-              {photo.approved ? 'Approuvée' : photo.rejected ? 'Refusée' : 'En attente'}
+                {photo.approved ? 'Approuvée' : photo.rejected ? 'Refusée' : 'En attente'}
               </div>
             </div>
           );
         })}
       </div>
+
+      {photos.length === 0 && (
+        <p className="text-center text-gray-400 py-16 font-schoolbell text-xl">
+          Aucune photo pour l'instant.
+        </p>
+      )}
     </div>
   );
 }
