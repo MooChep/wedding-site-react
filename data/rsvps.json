@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "id": 1772440685066,
+    "createdAt": "2026-03-02T08:38:05.066Z",
+    "lastName": "dwd",
+    "guestNames": "dwdw",
+    "attendance": {
+      "fridayOnSite": true,
+      "cocktailDinatoire": false,
+      "wineReception": false,
+      "party": false,
+      "ceremony": false,
+      "absent": false,
+      "sunday": false
+    },
+    "danceMusic": "",
+    "message": ""
+  },
+  {
+    "id": 1772440792653,
+    "createdAt": "2026-03-02T08:39:52.653Z",
+    "lastName": "dwd",
+    "guestNames": "dwdw",
+    "attendance": {
+      "fridayOnSite": false,
+      "cocktailDinatoire": false,
+      "wineReception": false,
+      "party": false,
+      "ceremony": false,
+      "absent": false,
+      "sunday": true
+    },
+    "danceMusic": "dw",
+    "message": ""
+  },
+  {
+    "id": 1772441148114,
+    "createdAt": "2026-03-02T08:45:48.114Z",
+    "lastName": "dwd",
+    "guestNames": "dw",
+    "attendance": {
+      "fridayOnSite": true,
+      "cocktailDinatoire": false,
+      "wineReception": false,
+      "party": false,
+      "ceremony": false,
+      "sunday": false,
+      "absent": false
+    },
+    "danceMusic": "",
+    "message": ""
+  }
+]

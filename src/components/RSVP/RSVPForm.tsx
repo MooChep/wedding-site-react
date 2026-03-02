@@ -51,6 +51,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     if (!res.ok) throw new Error('Erreur serveur');
 
     setSubmitted(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(() => {
       setFormData({
         lastName: '',
