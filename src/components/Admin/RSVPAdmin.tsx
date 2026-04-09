@@ -33,7 +33,7 @@ const EVENTS: { key: keyof Attendance; label: string; emoji: string; day: string
 ];
 
 function countGuestNames(names: string) {
-  return names.split(',').map(n => n.trim()).filter(Boolean).length;
+  return names.split(/,|&|\bet\b|\band\b| /).map(n => n.trim()).filter(Boolean).length;
 }
 
 export default function RSVPAdmin() {
