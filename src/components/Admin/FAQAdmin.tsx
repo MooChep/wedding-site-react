@@ -32,7 +32,7 @@ function FAQEditRow({
   const [a, setA] = useState(faq.answer ?? '');
 
   return (
-    <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 space-y-3">
+    <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 space-y-3 pt-5">
       <input
         className="w-full border border-amber-300 rounded-lg px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-300"
         placeholder="Question"

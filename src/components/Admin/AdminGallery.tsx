@@ -70,7 +70,7 @@ export default function AdminGallery() {
 
   return (
     <div>
-      <h2 className="font-schoolbell text-3xl text-gray-800 mb-6">Galerie photos 📸</h2>
+      <h2 className="font-schoolbell text-3xl text-gray-800 mb-6 pt-5">Galerie photos 📸</h2>
       <p className="text-gray-500 text-lg mb-10">
         Approuvez, rejetez ou supprimez les photos
       </p>

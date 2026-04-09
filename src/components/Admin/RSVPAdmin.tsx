@@ -237,10 +237,10 @@ export default function RSVPAdmin() {
                         ))}
                       </div>
                     </td>
-                    <td className="px-5 py-4 text-gray-500 italic max-w-[160px] truncate">{rsvp.danceMusic || '—'}</td>
-                    <td className="px-5 py-4 text-gray-500 max-w-[180px]">
+                    <td className="px-5 py-4 text-gray-500 italic">{rsvp.danceMusic || '—'}</td>
+                    <td className="px-5 py-4 text-gray-500">
                       {rsvp.message
-                        ? <span className="line-clamp-2" title={rsvp.message}>{rsvp.message}</span>
+                        ? <span>{rsvp.message}</span>
                         : <span className="text-gray-300">—</span>
                       }
                     </td>
